@@ -22,6 +22,11 @@ const Toast = Swal.mixin({
   }
 });
 
+Vue.use(VueFirestore, {
+  key: "id",
+  enumerable: true
+});
+
 window.Toast = Toast;
 
 window.$ = window.jQuery = jQuery;

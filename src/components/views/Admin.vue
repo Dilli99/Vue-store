@@ -25,7 +25,7 @@
                 Jhon
                 <strong>Smith</strong>
               </span>
-              <span class="user-role">Administrator</span>
+              <span class="user-role">{{email}}</span>
               <span class="user-status">
                 <i class="fa fa-circle"></i>
                 <span>Online</span>
@@ -80,6 +80,12 @@
                 <router-link to="/admin/product">
                   <i class="far fa-gem"></i>
                   <span>Products</span>
+                </router-link>
+              </li>
+              <li class="sidebar-dropdown">
+                <router-link to="/admin/profile">
+                  <i class="far fa-gem"></i>
+                  <span>Profile</span>
                 </router-link>
               </li>
               <li class="sidebar-dropdown">
@@ -139,6 +145,12 @@ import { fb } from "../../firebaseConfig.js";
 
 export default {
   name: "admin",
+  data() {
+    return {
+      name: null,
+      email: null
+    };
+  },
   methods: {
     toggleMenu() {
       $(".page-wrapper").toggleClass("toggled");
@@ -153,6 +165,10 @@ export default {
           console.log(err);
         });
     }
+  },
+  created() {
+    var user = fb.auth().currentUser;
+    this.email = user.email;
   }
 };
 </script>

@@ -152,7 +152,7 @@
 </template>
 
 <script>
-import { fb } from "../firebaseConfig.js";
+import { fb, db } from "../firebaseConfig.js";
 
 export default {
   name: "login",
@@ -187,7 +187,14 @@ export default {
       fb.auth()
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(user => {
-          $("#login").modal("hide"), this.$router.replace("admin");
+          $("#login").modal("hide"),
+            db
+              .collection("profiles")
+              .doc(user.user.uid)
+              .set({
+                name: this.name
+              });
+          this.$router.replace("admin");
         })
         .catch(function(error) {
           // Handle Errors here.

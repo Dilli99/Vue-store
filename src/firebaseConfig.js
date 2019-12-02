@@ -1,4 +1,5 @@
 import firebase from "firebase";
+require("firebase/storage");
 require("firebase/firestore");
 
 var firebaseConfig = {
@@ -11,6 +12,7 @@ var firebaseConfig = {
   appId: "1:1071366767596:web:c8248cb1410f083d4536c9",
   measurementId: "G-3KEK813B47"
 };
+
 // Initialize Firebase
 const fb = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
