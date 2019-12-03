@@ -7,6 +7,7 @@ import router from "./router";
 import { fb } from "./firebaseConfig";
 import VueFirestore from "vue-firestore";
 import Swal from "sweetalert2";
+import store from "./store.js";
 
 window.Swal = Swal;
 
@@ -41,6 +42,7 @@ fb.auth().onAuthStateChanged(function(user) {
   if (!app) {
     new Vue({
       router,
+      store,
       render: h => h(App)
     }).$mount("#app");
   }
