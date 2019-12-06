@@ -5,6 +5,7 @@ import Admin from "./components/views/Admin.vue";
 import Overview from "./components/sections/Overview.vue";
 import Product from "./components/sections/Product.vue";
 import Profile from "./components/sections/Profile.vue";
+import Checkout from "./components/views/Checkout.vue";
 import Router from "vue-router";
 import { fb } from "./firebaseConfig";
 
@@ -22,6 +23,11 @@ const router = new Router({
       path: "/about",
       name: "about",
       component: About
+    },
+    {
+      path: "/checkout",
+      name: "checkout",
+      component: Checkout
     },
     {
       path: "/admin",

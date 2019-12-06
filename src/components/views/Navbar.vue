@@ -22,8 +22,12 @@
         </li>
       </ul>
 
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-        Search
+      <button
+        class="btn btn-outline-primary my-2 my-sm-0"
+        data-toggle="modal"
+        data-target="#cartModal"
+      >
+        <i class="fas fa-shopping-cart"></i>
       </button>
     </div>
   </nav>

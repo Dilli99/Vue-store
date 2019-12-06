@@ -22,6 +22,15 @@ export default {
       }
     };
   },
+
+  computed: {
+    shoppingCartTotal() {
+      return this.cart
+        .map(item => item.price)
+        .reduce((total, amount) => total + amount);
+    }
+  },
+
   methods: {
     addToCart() {
       $("#cartModal").modal("show");

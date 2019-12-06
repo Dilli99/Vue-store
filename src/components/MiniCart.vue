@@ -10,15 +10,8 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header border-bottom-0">
-          <h5 class="modal-title" id="exampleModalLabel">
-            Your Shopping Cart
-          </h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
+          <h5 class="modal-title" id="exampleModalLabel">Your Shopping Cart</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -46,16 +39,15 @@
                 <td>{{ item.productName }}</td>
                 <td>{{ item.productPrice }}</td>
                 <td class="qty">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="input1"
-                    value="2"
-                  />
+                  <input type="text" class="form-control" id="input1" value="2" />
                 </td>
                 <td>{{ "Total" }}</td>
                 <td>
-                  <a href="#" class="btn btn-danger btn-sm">
+                  <a
+                    href="#"
+                    class="btn btn-danger btn-sm"
+                    @click="$store.commit('removeFromCart',item)"
+                  >
                     <i class="fa fa-times"></i>
                   </a>
                 </td>
@@ -63,14 +55,15 @@
             </tbody>
           </table>
           <div class="d-flex justify-content-end">
-            <h5>Total: <span class="price text-success">89$</span></h5>
+            <h5>
+              Total:
+              <span class="price text-success">89$</span>
+            </h5>
           </div>
         </div>
         <div class="modal-footer border-top-0 d-flex justify-content-between">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
-          </button>
-          <button type="button" class="btn btn-success">Checkout</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <router-link to="/checkout" type="button" class="btn btn-success">Checkout</router-link>
         </div>
       </div>
     </div>
@@ -79,7 +72,10 @@
 
 <script>
 export default {
-  name: "MiniCart"
+  name: "MiniCart",
+  data() {
+    return {};
+  }
 };
 </script>
 
