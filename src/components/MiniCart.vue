@@ -57,7 +57,7 @@
           <div class="d-flex justify-content-end">
             <h5>
               Total:
-              <span class="price text-success">89$</span>
+              <span class="price text-success">{{this.$store.getters.totalPrice}}</span>
             </h5>
           </div>
         </div>
